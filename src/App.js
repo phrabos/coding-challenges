@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { task1,} from './callbacks';
 
 function App() {
+task1(()=>(console.log('task2')));
+
+  // task2();
   return (
     <div className="App">
       <header className="App-header">
