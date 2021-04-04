@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import { isPalindrome, shuffle, truncateSentence } from './kata';
 
 
 function App() {
@@ -8,8 +9,8 @@ function App() {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(true)
 
+truncateSentence("Hello how are you Contestant", 4)
 
-  
   useEffect(() => {
     setLoading(true)
     fetchGif().then(result => {
@@ -27,8 +28,7 @@ function App() {
     return url
   }
 
-  console.log(fetchGif().then(url3 => console.log(url3))).then()
- 
+  
   
 
   if (loading) return <h1 style={{ color: 'red' }}>loading...</h1>
