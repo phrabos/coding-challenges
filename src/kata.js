@@ -74,3 +74,22 @@ export function wave(str){
      }
      return result;
   }
+
+function useState(init) {
+  let currentState = init;
+  setState(data){
+    return currentState = data;
+  };
+  return [currentState, function setState(){}];
+}
+
+var isPalindrome = function(head) {
+  let arr = [];
+  head.map(num => arr.unshift(num))
+  for (let i = 0; i <= head.length; i++){
+    if (head[i] === arr[i]) return true;
+    else return false;
+  } 
+};
+
+

@@ -1,26 +1,44 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { task1,} from './callbacks';
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
-task1(()=>(console.log('task2')));
 
-  // task2();
+  const [url, setUrl] = useState('')
+  const [loading, setLoading] = useState(true)
+
+
+  
+  useEffect(() => {
+    setLoading(true)
+    fetchGif().then(result => {
+      setUrl(result);
+      
+    })
+    setLoading(false)
+  }, [])
+
+  
+  async function fetchGif() {
+    const response = await fetch('https://api.giphy.com/v1/gifs/random?api_key=vBCWNyFrAzaje96Ry8yw19DOH35jbpfO')
+    const data = await response.json()
+    const url = data.data.image_url
+    return url
+  }
+
+  console.log(fetchGif().then(url3 => console.log(url3))).then()
+ 
+  
+
+  if (loading) return <h1 style={{ color: 'red' }}>loading...</h1>
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={url} alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Random Giphy
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
