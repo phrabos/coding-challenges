@@ -160,3 +160,35 @@ export function truncateSentence(s, k) {
 
   return result
 };
+
+function calcResistance(arr){
+  const colorMap = new Map([
+    ['Black', 0],
+    ['Brown', 1],
+    ['Red', 2],
+    ['Orange', 3],
+    ['Yellow', 4],
+    ['Green', 5],
+    ['Blue', 6],
+    ['Violet', 7],
+    ['Grey', 8],
+    ['White', 9]
+
+  ])
+  return `${colorMap.get(arr[0])}${colorMap.get(arr[1])}` * colorMap.get(arr[2])
+}
+
+const bandGen = arr => {
+  const colors = {
+      Black: 0,Brown: 1,Red: 2,
+      Orange: 3, Yellow: 4, Green: 5,
+      Blue: 6, Violet: 7, Grey: 8,
+      White: 9}
+  const n = arr.map(col => colors[col])
+  return `${n[0]}${n[1]}` * n[2]
+}
+
+const time = ''
+console.time('time')
+bandGen(['Brown', 'Green', 'Yellow']);
+console.timeEnd('time')
