@@ -192,3 +192,43 @@ const time = ''
 console.time('time')
 bandGen(['Brown', 'Green', 'Yellow']);
 console.timeEnd('time')
+
+function sameFrequency(num1, num2){
+
+  let strNum1 = num1.toString();
+  let strNum2 = num2.toString();
+  if(strNum1.length !== strNum2.length) return false;
+
+  let countNum1 = {};
+  let countNum2 = {};
+
+  for(let i = 0; i < strNum1.length; i++){
+    countNum1[strNum1[i]] = (countNum1[strNum1[i]] || 0) + 1
+  }
+  for(let j = 0; j < strNum2.length; j++){
+    countNum2[strNum2[j]] = (countNum2[strNum2[j]] || 0) + 1
+  }
+
+  for(let key in countNum1){
+    if(countNum1[key] !== countNum2[key]) return false;
+  }
+
+  return true;
+}
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+// Note: If the number is a multiple of both 3 and 5, only count it once. Also, if a number is negative, return 0(for languages that do have them)
+
+const multsOf3and5 = (number)=>{
+  if(number <= 0)return 0
+  let multsArr = [];
+  for (let i = number - 1; i > 0; i--) {
+    if(i % 5 === 0 || i % 3 === 0){
+      multsArr.push(i)
+    }
+  }
+  return multsArr.reduce((acc, curr)=>acc + curr, 0);
+}
