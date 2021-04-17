@@ -365,3 +365,50 @@ function getMiddle(s)
   if(s.length % 2 !== 0)return s[Math.floor(s.length/2)]
   else return  s[((s.length/2) -1)] + s[(s.length/2)] 
 }
+
+// Build Tower
+// Build Tower by the following given argument:
+// number of floors (integer and always greater than 0).
+
+// Tower block is represented as *
+
+// JavaScript: returns an Array;
+
+// for example, a tower of 3 floors looks like below
+
+// [
+//   '  *  ', 
+//   ' *** ', 
+//   '*****'
+// ]
+// and a tower of 6 floors looks like below
+
+// [
+//   '     *     ', 
+//   '    ***    ', 
+//   '   *****   ', 
+//   '  *******  ', 
+//   ' ********* ', 
+//   '***********'
+// ]
+
+function towerBuilder(n) {
+
+  let length = n + n-1
+  let tower = []
+  let floor = []
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < length; j++) {
+      floor.push('*')
+    }
+    length -=1
+    tower.push(floor[i])
+  }
+  return tower;
+}
+
+//           *
+//          ***
+//         *****
+//        *******
