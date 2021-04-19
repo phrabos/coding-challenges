@@ -417,3 +417,32 @@ function solution(nums){
 if(!nums)return [];
 return nums.sort((a,b)=> a-b)
 };
+
+//linear search vs binary search examples returning the index
+linearSearch(arr, val){
+ for(let i = 0; i < arr.length; i++){
+  num = arr[i]
+  if(val === num) return i
+ }
+ return -1
+}
+
+binarySearch(arr, val){
+let left = 0;
+let right = arr.length - 1;
+let center = Math.floor((left + right)/2);
+
+while(arr[center] !== val && left <= right){
+
+
+  if(arr[center] < val) left = center + 1;
+  if(arr[center] > val) right = center - 1;
+  center = Math.floor((left + right)/2);
+
+}
+if(arr[center] === val)return center;
+return -1;
+
+}
+
+binarySearch([5,24, 30, 43, 58, 60, 63], 58)
