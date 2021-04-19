@@ -446,3 +446,21 @@ return -1;
 }
 
 binarySearch([5,24, 30, 43, 58, 60, 63], 58)
+
+// find all duplicates in array
+const findDuplictes = (nums)=>{
+  let result = [];
+  for(let i = 0; i < nums.length; i++){
+    let value = Math.abs(nums[i])
+    let index = value - 1;
+    if(nums[index] < 0){
+      result.push(value)
+    }else{
+      nums[index] *= -1
+    }
+    }
+    
+  }
+  
+  return result;
+}
