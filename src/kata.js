@@ -454,3 +454,49 @@ function list(names){
   
   return res;
 }
+//linear search vs binary search examples returning the index
+linearSearch(arr, val){
+ for(let i = 0; i < arr.length; i++){
+  num = arr[i]
+  if(val === num) return i
+ }
+ return -1
+}
+
+binarySearch(arr, val){
+let left = 0;
+let right = arr.length - 1;
+let center = Math.floor((left + right)/2);
+
+while(arr[center] !== val && left <= right){
+
+
+  if(arr[center] < val) left = center + 1;
+  if(arr[center] > val) right = center - 1;
+  center = Math.floor((left + right)/2);
+
+}
+if(arr[center] === val)return center;
+return -1;
+
+}
+
+binarySearch([5,24, 30, 43, 58, 60, 63], 58)
+
+// find all duplicates in array
+const findDuplictes = (nums)=>{
+  let result = [];
+  for(let i = 0; i < nums.length; i++){
+    let value = Math.abs(nums[i])
+    let index = value - 1;
+    if(nums[index] < 0){
+      result.push(value)
+    }else{
+      nums[index] *= -1
+    }
+    }
+    
+  }
+  
+  return result;
+}
