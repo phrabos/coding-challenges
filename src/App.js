@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { isPalindrome, shuffle, truncateSentence } from './kata';
+// import { isPalindrome, shuffle, truncateSentence } from './kata';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(true)
 
-truncateSentence("Hello how are you Contestant", 4)
+// truncateSentence("Hello how are you Contestant", 4)
 
   useEffect(() => {
     setLoading(true)
